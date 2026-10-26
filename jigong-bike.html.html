@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>济公骑自行车</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #f5e8c8;
+      font-family: "Microsoft YaHei", sans-serif;
+    }
+
+    .scene {
+      width: min(900px, 96vw);
+      overflow: hidden;
+      border: 8px solid #fff8e8;
+      border-radius: 24px;
+      background: #c9e9df;
+      box-shadow: 0 18px 50px #755b382e;
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .wheel {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: spin 3s linear infinite;
+    }
+
+    .bike {
+      animation: bob 1.2s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes bob {
+      50% { transform: translateY(-3px); }
+    }
+  </style>
+</head>
+<body>
+  <main class="scene">
+    <svg viewBox="0 0 900 560" role="img" aria-labelledby="title desc"
+         xmlns="http://www.w3.org/2000/svg">
+      <title id="title">济公骑自行车</title>
+      <desc id="desc">戴着破帽、手拿酒葫芦的济公，骑着自行车经过山间小路。</desc>
+
+      <defs>
+        <linearGradient id="sky" x2="0" y2="1">
+          <stop offset="0" stop-color="#a9d9d1"/>
+          <stop offset="1" stop-color="#e7e7bb"/>
+        </linearGradient>
+        <linearGradient id="robe" x2="0" y2="1">
+          <stop offset="0" stop-color="#c84932"/>
+          <stop offset="1" stop-color="#902e28"/>
+        </linearGradient>
+      </defs>
+
+      <!-- 天空与远山 -->
+      <rect width="900" height="560" fill="url(#sky)"/>
+      <circle cx="745" cy="105" r="48" fill="#f9d77d"/>
+      <path d="M0 290 Q120 190 250 280 T490 255 T740 270 T900 225 V430 H0Z"
+            fill="#89b7a0"/>
+      <path d="M0 340 Q160 255 300 335 T570 300 T900 325 V450 H0Z"
+            fill="#6d9c76"/>
+
+      <!-- 云 -->
+      <g fill="#fff8e5" opacity=".85">
+        <ellipse cx="160" cy="105" rx="54" ry="17"/>
+        <ellipse cx="190" cy="96" rx="30" ry="23"/>
+        <ellipse cx="218" cy="107" rx="36" ry="15"/>
+        <ellipse cx="560" cy="145" rx="42" ry="13"/>
+        <ellipse cx="585" cy="137" rx="25" ry="19"/>
+        <ellipse cx="612" cy="146" rx="31" ry="12"/>
+      </g>
+
+      <!-- 小路 -->
+      <path d="M0 430 Q210 390 390 425 Q595 465 900 390 V560 H0Z"
+            fill="#d9bd85"/>
+      <path d="M0 468 Q230 420 410 455 T900 430" fill="none"
+            stroke="#c4a46c" stroke-width="5" stroke-dasharray="17 18"/>
+
+      <!-- 草丛 -->
+      <g fill="#47784f">
+        <path d="M42 425q-8-35 8-51 13 25 7 49 15-37 32-37-4 31-27 45z"/>
+        <path d="M804 414q-4-32 12-47 11 25 4 46 15-30 30-29-5 28-26 39z"/>
+        <path d="M115 443q-5-25 8-38 10 20 5 37 13-23 25-20-4 23-22 32z"/>
+      </g>
+
+      <g class="bike">
+        <!-- 自行车轮子 -->
+        <g class="wheel" fill="none" stroke="#393b39" stroke-width="7">
+          <circle cx="300" cy="402" r="77"/>
+          <circle cx="580" cy="402" r="77"/>
+          <g stroke="#74746c" stroke-width="2">
+            <path d="M300 325v154M223 402h154M246 348l108 108M354 348L246 456"/>
+            <path d="M580 325v154M503 402h154M526 348l108 108M634 348L526 456"/>
+          </g>
+        </g>
+
+        <!-- 车架与车把 -->
+        <g fill="none" stroke="#a33d2d" stroke-width="9"
+           stroke-linecap="round" stroke-linejoin="round">
+          <path d="M300 402 L385 402 L440 330 L352 330 L300 402"/>
+          <path d="M385 402 L490 402 L440 330"/>
+          <path d="M490 402 L535 325"/>
+          <path d="M520 325h39l18 13"/>
+          <path d="M335 320h42"/>
+        </g>
+        <circle cx="385" cy="402" r="10" fill="#e4bb4e"/>
+        <path d="M370 402h30M385 387v30" stroke="#393b39" stroke-width="5"
+              stroke-linecap="round"/>
+        <path d="M326 314h49" stroke="#393b39" stroke-width="8"
+              stroke-linecap="round"/>
+        <path d="M525 315h38" stroke="#393b39" stroke-width="8"
+              stroke-linecap="round"/>
+
+        <!-- 济公的腿 -->
+        <path d="M410 302 Q398 340 376 365 L338 366"
+              fill="none" stroke="#e5c29a" stroke-width="18" stroke-linecap="round"/>
+        <path d="M430 305 Q455 345 480 365 L510 365"
+              fill="none" stroke="#e5c29a" stroke-width="18" stroke-linecap="round"/>
+        <path d="M337 366l-19 3M509 365l19 4"
+              stroke="#6c3228" stroke-width="13" stroke-linecap="round"/>
+
+        <!-- 袈裟与身体 -->
+        <path d="M392 215 Q420 199 451 219 L470 300
+                 Q438 328 392 305 L374 258Z"
+              fill="url(#robe)" stroke="#702b25" stroke-width="4"/>
+        <path d="M395 222 Q420 247 457 252" fill="none"
+              stroke="#e7aa59" stroke-width="8"/>
+        <path d="M391 267 Q427 281 464 271" fill="none"
+              stroke="#e7aa59" stroke-width="5"/>
+        <path d="M385 301l-18 22 20 8 18-24"
+              fill="#9e342b" stroke="#702b25" stroke-width="3"/>
+
+        <!-- 手臂 -->
+        <path d="M390 231 Q362 258 346 308"
+              fill="none" stroke="#c84932" stroke-width="19" stroke-linecap="round"/>
+        <path d="M346 308l-10 12"
+              stroke="#e5c29a" stroke-width="15" stroke-linecap="round"/>
+        <path d="M452 232 Q488 248 528 307"
+              fill="none" stroke="#c84932" stroke-width="19" stroke-linecap="round"/>
+        <path d="M528 307l10 10"
+              stroke="#e5c29a" stroke-width="15" stroke-linecap="round"/>
+
+        <!-- 葫芦 -->
+        <g transform="translate(536 270) rotate(18)">
+          <path d="M13 3h15v13q16 12 12 29-3 19-18 19T4 45q-3-17 9-28z"
+                fill="#d49b35" stroke="#805321" stroke-width="4"/>
+          <path d="M13 18h15M10 39q12 8 26 0"
+                fill="none" stroke="#f3cf6d" stroke-width="4"/>
+          <path d="M15 3V-5h12v8" fill="#805321"/>
+        </g>
+
+        <!-- 头与耳朵 -->
+        <circle cx="419" cy="186" r="35" fill="#e5b991"/>
+        <path d="M385 183q-13-4-13 8 1 11 15 10M452 183q13-4 13 8-1 11-15 10"
+              fill="#e5b991" stroke="#b47c5d" stroke-width="3"/>
+        <!-- 破帽 -->
+        <path d="M381 174q5-36 41-38 34 2 42 39
+                 l-16 5-8-10-12 10-13-9-14 10-9-8z"
+              fill="#52634d" stroke="#354437" stroke-width="4"/>
+        <path d="M379 177q35-12 88 0l-5 12q-41-9-80 2z"
+              fill="#687451" stroke="#354437" stroke-width="3"/>
+        <path d="M411 143l-8 17 14-5 8 11 7-20"
+              fill="none" stroke="#a7a17a" stroke-width="4"/>
+
+        <!-- 脸部 -->
+        <path d="M404 190q5-4 10 0M428 190q5-4 10 0"
+              fill="none" stroke="#49362f" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="410" cy="191" r="2.5" fill="#302a27"/>
+        <circle cx="434" cy="191" r="2.5" fill="#302a27"/>
+        <path d="M416 205q8 7 16-1" fill="none"
+              stroke="#8b4536" stroke-width="3" stroke-linecap="round"/>
+        <path d="M407 211q11 13 24 0" fill="none"
+              stroke="#eee0c5" stroke-width="5" stroke-linecap="round"/>
+        <path d="M414 213v11m9-12v12"
+              stroke="#574033" stroke-width="3" stroke-linecap="round"/>
+      </g>
+
+      <!-- 标题 -->
+      <g>
+        <rect x="28" y="25" width="250" height="54" rx="27"
+              fill="#fff8e5" opacity=".92"/>
+        <text x="153" y="61" text-anchor="middle"
+              font-size="27" font-weight="bold" fill="#7b4432">
+          济公逍遥骑行
+        </text>
+      </g>
+
+      <text x="450" y="526" text-anchor="middle"
+            font-size="18" fill="#705b40">
+        酒葫芦在手，骑行乐悠悠
+      </text>
+    </svg>
+  </main>
+</body>
+</html>
